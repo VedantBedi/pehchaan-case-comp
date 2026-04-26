@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Pehchaan — Know Your Worth</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+
+:root{
+  --g: #25D366;
+  --dg: #075E54;
+  --mg: #128C7E;
+  --lg: #DCF8C6;
+  --bg: #ECE5DD;
+  --w: #FFFFFF;
+  --tx: #111B21;
+  --sub: #667781;
+  --bdr: #E9EDEF;
+  --shadow: rgba(0,0,0,0.10);
+}
+
+html,body{
+  font-family:'Poppins',sans-serif;
+  background:#D1D7DB;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  padding-top:0;
+}
+
+.phone-wrap{
+  width:100%;
+  max-width:480px;
+  min-height:100vh;
+  background:var(--bg);
+  position:relative;
+  box-shadow:0 0 60px rgba(0,0,0,0.22);
+  transition:max-width .3s ease,box-shadow .3s ease;
+}
+
+/* ── RESPONSIVE BREAKPOINTS ── */
+/* Compact phones (≤360px) */
+@media(max-width:360px){
+  .hero-h1{font-size:20px}
+  .score-num{font-size:58px}
+  .score-pct{font-size:22px}
+  .ba-score{font-size:22px}
+  .sal-new{font-size:18px}
+  .screen{padding:16px 14px 28px}
+  .sc-student{font-size:17px}
+  .trial-num{font-size:50px}
+  .success-h1{font-size:20px}
+  .success-anim{font-size:52px}
+  .parent-emoji-big{font-size:42px}
+  .parent-h1{font-size:16px}
+  .stat-num{font-size:17px}
+  .btn{font-size:13px;padding:13px}
+  .app-header{padding:10px 14px}
+  .logo-text{font-size:18px}
+  .logo-sub{font-size:9px}
+}
+
+/* Mid-range phones (361px–480px) — default, no changes needed */
+
+/* Small tablets (481px–599px) */
+@media(min-width:481px) and (max-width:599px){
+  body{background:#C4CAD0;padding:16px 0 32px}
+  .phone-wrap{
+    border-radius:20px;
+    min-height:auto;
+    box-shadow:0 12px 48px rgba(0,0,0,0.25);
+    max-width:520px;
+  }
+  .app-header{border-radius:20px 20px 0 0}
+  .hero-h1{font-size:24px}
+  .screen{padding:22px 22px 34px}
+  .score-num{font-size:75px}
+  .score-pct{font-size:30px}
+  .parent-h1{font-size:20px}
+  .success-h1{font-size:24px}
+  .trial-num{font-size:65px}
+  .feat-name{font-size:13.5px}
+  .feat-desc{font-size:11.5px}
+  .trust-row-item{font-size:13px}
+  .btn{font-size:14px;padding:14px}
+  .sc-student{font-size:19px}
+}
+
+/* Tablets & small desktop (≥600px) */
+@media(min-width:600px){
+  body{background:#C4CAD0;padding:24px 0 40px}
+  .phone-wrap{
+    border-radius:28px;
+    min-height:auto;
+    max-width:550px;
+    box-shadow:0 16px 60px rgba(0,0,0,0.30);
+  }
+  .app-header{border-radius:28px 28px 0 0}
+  .hero-h1{font-size:26px}
+  .screen{padding:24px 24px 36px}
+  .score-num{font-size:80px}
+  .score-pct{font-size:32px}
+  .parent-h1{font-size:21px}
+  .success-h1{font-size:26px}
+  .trial-num{font-size:68px}
+  .feat-name{font-size:14px}
+  .feat-desc{font-size:12px}
+  .trust-row-item{font-size:14px}
+  .btn{font-size:15px;padding:15px}
+  .sc-student{font-size:21px}
+  .stat-row{grid-template-columns:1fr 1fr 1fr;gap:10px}
+  .stat-box{padding:14px 10px}
+  .stat-num{font-size:22px}
+}
+
+/* Large desktop (≥900px) */
+@media(min-width:900px){
+  body{align-items:center;min-height:100vh}
+  .phone-wrap{max-width:580px}
+  .hero-h1{font-size:28px}
+  .screen{padding:28px 28px 40px}
+  .btn{font-size:15px;padding:16px}
+  .card{padding:20px;margin-bottom:16px}
+}
+
+/* Extra-large desktop (≥1280px) - Desktop layout option */
+@media(min-width:1280px){
+  body{align-items:center;justify-content:center;min-height:100vh;gap:40px}
+  .phone-wrap{max-width:600px}
+  .hero-h1{font-size:30px}
+  .screen{padding:32px 32px 44px;min-height:auto}
+  .stat-row{grid-template-columns:1fr 1fr 1fr;gap:12px}
+  .stat-box{padding:16px 12px}
+  .stat-num{font-size:24px}
+  .btn{font-size:16px;padding:16px}
+  .card{padding:22px;margin-bottom:18px}
+  .form-input,.form-select{font-size:15px;padding:14px}
+}
+
+/* ── HEADER ── */
+.app-header{
+  background:var(--dg);
+  padding:13px 18px 12px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:sticky;
+  top:0;
+  z-index:50;
+}
+.logo-block{}
+.logo-text{font-size:21px;font-weight:800;color:#fff;letter-spacing:-0.5px;line-height:1}
+.logo-text span{color:var(--g)}
+.logo-sub{font-size:10px;color:rgba(255,255,255,0.65);margin-top:1px;letter-spacing:0.3px}
+.header-badge{
+  background:rgba(37,211,102,0.18);
+  border:1px solid rgba(37,211,102,0.35);
+  color:var(--g);
+  font-size:10px;
+  font-weight:700;
+  padding:4px 9px;
+  border-radius:20px;
+  letter-spacing:0.3px;
+}
+
+/* ── PROGRESS ── */
+.progress-bar{height:3px;background:rgba(255,255,255,0.15)}
+.progress-fill{height:100%;background:var(--g);transition:width .5s cubic-bezier(.4,0,.2,1)}
+
+/* ── STEP DOTS ── */
+.step-dots{
+  display:flex;
+  justify-content:center;
+  gap:5px;
+  padding:9px 0 5px;
+  background:var(--dg);
+}
+.dot{
+  width:6px;height:6px;border-radius:50%;
+  background:rgba(255,255,255,0.25);
+  transition:all .3s ease;
+}
+.dot.active{background:var(--g);width:20px;border-radius:3px}
+
+/* ── SCREENS ── */
+.screen{
+  display:none;
+  padding:20px 18px 30px;
+  animation:slideIn .35s cubic-bezier(.4,0,.2,1);
+  min-height:calc(100vh - 90px);
+  overflow-y:auto;
+}
+.screen.active{display:block}
+
+@keyframes slideIn{
+  from{opacity:0;transform:translateX(28px)}
+  to{opacity:1;transform:translateX(0)}
+}
+
+/* ── CARDS / CONTAINERS ── */
+.card{
+  background:var(--w);
+  border-radius:16px;
+  padding:18px;
+  margin-bottom:14px;
+  box-shadow:0 2px 12px var(--shadow);
+}
+
+/* ── BUTTONS ── */
+.btn{
+  width:100%;
+  padding:15px;
+  border:none;
+  border-radius:13px;
+  font-size:15px;
+  font-weight:700;
+  font-family:'Poppins',sans-serif;
+  cursor:pointer;
+  transition:transform .15s,box-shadow .15s;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  min-height:48px;
+  touch-action:manipulation;
+}
+.btn:active{transform:scale(0.97)}
+.btn:hover{opacity:0.9}
+
+.btn-green{
+  background:var(--g);
+  color:#fff;
+  box-shadow:0 4px 18px rgba(37,211,102,0.38);
+}
+.btn-green.pulse{animation:pulseglow 2s ease infinite}
+.btn-green:hover{box-shadow:0 6px 24px rgba(37,211,102,0.45)}
+
+@keyframes pulseglow{
+  0%,100%{box-shadow:0 4px 18px rgba(37,211,102,0.38)}
+  50%{box-shadow:0 4px 28px rgba(37,211,102,0.65)}
+}
+
+.btn-outline{
+  background:transparent;
+  color:var(--g);
+  border:2px solid var(--g);
+}
+
+/* ── FORMS ── */
+.form-group{margin-bottom:12px}
+.form-label{
+  font-size:12px;font-weight:600;color:var(--tx);
+  display:block;margin-bottom:5px;
+}
+.form-input,.form-select{
+  width:100%;
+  padding:13px 14px;
+  border:1.5px solid var(--bdr);
+  border-radius:11px;
+  font-size:14px;
+  font-family:'Poppins',sans-serif;
+  color:var(--tx);
+  background:#FAFAFA;
+  outline:none;
+  transition:border-color .2s,background .2s,box-shadow .2s;
+  -webkit-appearance:none;
+  appearance:none;
+  min-height:48px;
+  box-sizing:border-box;
+}
+.form-input:focus,.form-select:focus{
+  border-color:var(--g);
+  background:#fff;
+  box-shadow:0 0 0 3px rgba(37,211,102,0.1);
+}
+.select-wrap{position:relative}
+.select-wrap::after{
+  content:'▾';
+  position:absolute;right:14px;top:50%;transform:translateY(-50%);
+  color:var(--sub);font-size:14px;pointer-events:none;
+}
+
+/* ══════════════════════════════════════════
+   SCREEN 1 — LANDING
+══════════════════════════════════════════ */
+.hero-pill{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--lg);color:var(--dg);
+  font-size:11px;font-weight:700;
+  padding:5px 11px;border-radius:20px;
+  margin-bottom:14px;
+}
+.hero-h1{
+  font-size:23px;font-weight:800;
+  color:var(--tx);line-height:1.22;
+  margin-bottom:6px;
+}
+.hero-h1 span{color:var(--mg)}
+.hero-sub{
+  font-size:13px;color:var(--sub);
+  line-height:1.5;margin-bottom:22px;
+}
+.trust-strip{
+  display:flex;align-items:center;justify-content:center;
+  gap:14px;margin-top:18px;flex-wrap:wrap;
+}
+.trust-chip{
+  font-size:11px;color:var(--sub);
+  display:flex;align-items:center;gap:4px;
+}
+.social-proof{
+  background:var(--lg);
+  border-radius:10px;
+  padding:10px 14px;
+  margin-bottom:20px;
+  display:flex;align-items:center;gap:10px;
+}
+.sp-avatars{display:flex}
+.sp-av{
+  width:26px;height:26px;border-radius:50%;
+  border:2px solid #fff;margin-right:-8px;
+  font-size:13px;display:flex;align-items:center;justify-content:center;
+  background:var(--g);
+}
+.sp-text{font-size:11px;color:var(--dg);font-weight:500;line-height:1.35}
+.sp-text strong{font-weight:700}
+
+/* ══════════════════════════════════════════
+   SCREEN 2 — AUDIT RESULT
+══════════════════════════════════════════ */
+.audit-top{
+  font-size:13px;color:var(--sub);margin-bottom:16px;
+  display:flex;align-items:center;gap:6px;
+}
+.audit-name{font-weight:700;color:var(--dg)}
+
+.score-blob{
+  background:linear-gradient(135deg,var(--dg) 0%,var(--mg) 100%);
+  border-radius:18px;
+  padding:24px 20px;
+  color:#fff;
+  text-align:center;
+  margin-bottom:20px;
+  position:relative;
+  overflow:hidden;
+}
+.score-blob::before{
+  content:'';
+  position:absolute;
+  width:140px;height:140px;
+  background:rgba(255,255,255,0.06);
+  border-radius:50%;
+  top:-30px;right:-30px;
+}
+.score-lbl{font-size:11px;opacity:.75;text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px}
+.score-ring{
+  display:inline-flex;align-items:baseline;gap:2px;
+  margin-bottom:6px;
+}
+.score-num{font-size:72px;font-weight:800;line-height:1}
+.score-pct{font-size:28px;font-weight:700;opacity:.85}
+.score-bar-wrap{
+  background:rgba(255,255,255,0.2);
+  border-radius:10px;height:8px;
+  margin:12px 0 8px;
+}
+.score-bar{
+  height:100%;border-radius:10px;
+  background:var(--g);
+  transition:width 1.2s cubic-bezier(.4,0,.2,1);
+}
+.score-verdict{font-size:12px;opacity:.8}
+
+.bullets-title{
+  font-size:14px;font-weight:700;
+  color:var(--tx);margin-bottom:12px;
+  display:flex;align-items:center;gap:6px;
+}
+.bullet-card{
+  display:flex;gap:10px;
+  padding:12px 14px;
+  background:#fff;
+  border:1.5px solid #D4EEE0;
+  border-left:4px solid var(--g);
+  border-radius:10px;
+  margin-bottom:8px;
+  font-size:12.5px;
+  color:var(--tx);
+  line-height:1.45;
+  align-items:flex-start;
+  box-shadow:0 1px 6px rgba(0,0,0,0.04);
+}
+.b-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+
+/* ══════════════════════════════════════════
+   SCREEN 3 — FAMILY SABHA CARD
+══════════════════════════════════════════ */
+.share-hint{
+  font-size:12px;color:var(--sub);
+  margin-bottom:14px;
+  display:flex;align-items:center;gap:6px;
+}
+
+/* The shareable card itself */
+.sabha-card{
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 6px 30px rgba(0,0,0,0.18);
+  margin-bottom:18px;
+  background:#fff;
+  border:1px solid #D9E0E3;
+}
+
+.sc-header{
+  background:linear-gradient(135deg,#064E45 0%,#0A7A6E 100%);
+  padding:18px 18px 16px;
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+}
+.sc-header::after{
+  content:'';
+  position:absolute;
+  width:120px;height:120px;
+  background:rgba(255,255,255,0.06);
+  border-radius:50%;
+  bottom:-40px;right:-20px;
+}
+.sc-top-row{
+  display:flex;justify-content:space-between;
+  align-items:flex-start;margin-bottom:14px;
+}
+.sc-brand-col{}
+.sc-brand{font-size:12px;font-weight:700;opacity:.85;letter-spacing:.4px}
+.sc-brand-url{font-size:10px;opacity:.5;margin-top:1px}
+.sc-verified{
+  background:var(--g);
+  color:#fff;font-size:9px;font-weight:800;
+  padding:3px 8px;border-radius:20px;letter-spacing:.4px;
+  display:flex;align-items:center;gap:3px;
+}
+.sc-student{font-size:20px;font-weight:800;line-height:1.1;margin-bottom:3px}
+.sc-degree{font-size:11px;opacity:.7}
+
+.sc-body{padding:15px 16px}
+
+.sc-section{margin-bottom:14px}
+.sc-sec-title{
+  font-size:10px;font-weight:700;
+  color:var(--sub);text-transform:uppercase;
+  letter-spacing:.6px;margin-bottom:9px;
+}
+
+/* Before / After */
+.ba-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:6px;align-items:center}
+.ba-col{border-radius:11px;padding:11px 12px;text-align:center}
+.ba-col.before{background:#FFF0F0;border:1px solid #FFD4D4}
+.ba-col.after{background:#F0FFF6;border:1px solid #B8EDD0}
+.ba-lbl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px}
+.ba-col.before .ba-lbl{color:#D94040}
+.ba-col.after .ba-lbl{color:var(--mg)}
+.ba-score{font-size:28px;font-weight:800;line-height:1}
+.ba-col.before .ba-score{color:#D94040}
+.ba-col.after .ba-score{color:var(--dg)}
+.ba-sub{font-size:9px;color:var(--sub);margin-top:2px}
+.ba-arrow{font-size:20px;color:var(--g);text-align:center}
+
+/* Salary */
+.salary-pill{
+  background:linear-gradient(135deg,#F0FFF7,#E4F8EE);
+  border:1.5px solid #B8EDD0;
+  border-radius:11px;
+  padding:11px 14px;
+}
+.sal-row{display:flex;align-items:center;gap:10px}
+.sal-old{font-size:14px;font-weight:700;color:#D94040;text-decoration:line-through;opacity:.7}
+.sal-arr{font-size:18px;color:var(--g)}
+.sal-new{font-size:22px;font-weight:800;color:var(--dg)}
+.sal-sub{font-size:10px;color:var(--sub);margin-top:2px}
+.sal-sub strong{color:var(--mg)}
+
+/* Job matches */
+.job-row{
+  display:flex;align-items:center;gap:10px;
+  padding:9px 0;
+  border-bottom:1px solid var(--bdr);
+}
+.job-row:last-child{border-bottom:none}
+.job-ico{
+  width:36px;height:36px;border-radius:9px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:17px;flex-shrink:0;
+}
+.job-info{flex:1}
+.job-company{font-size:13px;font-weight:600;color:var(--tx)}
+.job-pos{font-size:11px;color:var(--sub)}
+.job-pct{
+  font-size:11px;font-weight:700;color:var(--g);
+  background:var(--lg);
+  padding:3px 8px;border-radius:20px;white-space:nowrap;
+}
+
+/* Parent approval */
+.sc-parent{
+  background:linear-gradient(135deg,#064E45,#0A7A6E);
+  padding:15px 16px;
+}
+.sc-parent-title{
+  font-size:12px;font-weight:700;color:#fff;
+  margin-bottom:12px;
+  display:flex;align-items:center;gap:6px;
+}
+.sc-parent-inner{display:flex;gap:12px;align-items:center}
+.qr-box{
+  width:72px;height:72px;
+  background:#fff;border-radius:10px;
+  padding:6px;flex-shrink:0;
+  cursor:pointer;
+  transition:transform .15s,box-shadow .15s;
+  touch-action:manipulation;
+}
+.qr-box:hover{transform:scale(1.03);box-shadow:0 4px 14px rgba(0,0,0,0.25)}
+.qr-box:active{transform:scale(0.96)}
+.qr-grid{
+  width:100%;height:100%;
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  grid-template-rows:repeat(7,1fr);
+  gap:1.5px;
+}
+.qp{background:var(--dg);border-radius:1px}
+.qp.e{background:transparent}
+.sc-parent-text{}
+.sc-parent-copy{font-size:11.5px;color:rgba(255,255,255,.85);line-height:1.45;margin-bottom:9px}
+.btn-scan{
+  background:var(--g);color:#fff;border:none;
+  padding:9px 16px;border-radius:9px;
+  font-size:12px;font-weight:700;font-family:'Poppins',sans-serif;
+  cursor:pointer;display:flex;align-items:center;gap:5px;
+  transition:transform .15s,box-shadow .15s;
+  box-shadow:0 3px 10px rgba(37,211,102,0.45);
+  touch-action:manipulation;
+  min-height:40px;
+  white-space:nowrap;
+}
+.btn-scan:active{transform:scale(0.96)}
+.btn-scan:hover{box-shadow:0 4px 14px rgba(37,211,102,0.55)}
+
+/* WhatsApp share btn */
+.btn-wa{
+  width:100%;padding:14px;border:none;border-radius:13px;
+  font-size:15px;font-weight:700;font-family:'Poppins',sans-serif;
+  cursor:pointer;
+  background:var(--g);color:#fff;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  box-shadow:0 4px 18px rgba(37,211,102,0.4);
+  transition:transform .15s,box-shadow .15s;
+  touch-action:manipulation;
+  min-height:48px;
+}
+.btn-wa:active{transform:scale(0.97)}
+.btn-wa:hover{box-shadow:0 6px 24px rgba(37,211,102,0.5)}
+
+@keyframes waPop{
+  0%{transform:scale(1)}
+  35%{transform:scale(1.06)}
+  65%{transform:scale(0.97)}
+  100%{transform:scale(1)}
+}
+.wa-pop{animation:waPop .4s ease}
+
+.card-footer-note{
+  text-align:center;margin-top:10px;
+  font-size:11px;color:var(--sub);
+}
+
+/* ══════════════════════════════════════════
+   SCREEN 4 — PARENT VIEW
+══════════════════════════════════════════ */
+.parent-hero{text-align:center;padding:10px 0 20px}
+.parent-emoji-big{font-size:52px;margin-bottom:10px;display:block}
+.parent-greeting{
+  font-size:13px;color:var(--mg);font-weight:600;
+  margin-bottom:6px;
+}
+.parent-h1{
+  font-size:19px;font-weight:800;color:var(--tx);
+  line-height:1.28;margin-bottom:6px;
+}
+.parent-h1 span{color:var(--mg)}
+.parent-sub-txt{
+  font-size:13px;color:var(--sub);line-height:1.5;
+}
+.parent-sub-txt strong{color:var(--tx)}
+
+.stat-row{
+  display:grid;grid-template-columns:1fr 1fr 1fr;
+  gap:8px;margin-bottom:16px;
+}
+.stat-box{
+  background:#fff;border-radius:12px;padding:12px 8px;
+  text-align:center;border:1.5px solid var(--bdr);
+  box-shadow:0 1px 6px rgba(0,0,0,0.05);
+}
+.stat-num{font-size:20px;font-weight:800;color:var(--dg);line-height:1}
+.stat-lbl{font-size:9.5px;color:var(--sub);margin-top:3px}
+
+.trust-card{
+  background:#F6FFF8;
+  border:1.5px solid #BDE8CC;
+  border-radius:14px;
+  padding:15px 16px;
+  margin-bottom:16px;
+}
+.trust-card-title{
+  font-size:11px;font-weight:700;color:var(--dg);
+  text-transform:uppercase;letter-spacing:.5px;
+  margin-bottom:13px;
+}
+.trust-row-item{
+  display:flex;align-items:flex-start;gap:10px;
+  margin-bottom:10px;font-size:13px;color:var(--tx);
+  line-height:1.4;
+}
+.trust-row-item:last-child{margin-bottom:0}
+.trust-ck{
+  width:22px;height:22px;border-radius:50%;
+  background:var(--g);
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;color:#fff;flex-shrink:0;margin-top:0px;
+}
+
+.no-debit-strip{
+  display:flex;align-items:center;justify-content:center;
+  gap:14px;margin-top:12px;flex-wrap:wrap;
+}
+.nd-chip{font-size:11px;color:var(--sub);display:flex;align-items:center;gap:4px}
+
+/* ══════════════════════════════════════════
+   SCREEN 5 — CONVERSION
+══════════════════════════════════════════ */
+.success-center{text-align:center;padding:6px 0 20px}
+.success-anim{
+  font-size:62px;display:block;margin-bottom:12px;
+  animation:bounceIn .55s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes bounceIn{
+  0%{transform:scale(0.4);opacity:0}
+  70%{transform:scale(1.08)}
+  100%{transform:scale(1);opacity:1}
+}
+.success-h1{font-size:24px;font-weight:800;color:var(--tx);margin-bottom:5px}
+.success-sub{font-size:13px;color:var(--sub)}
+
+.trial-blob{
+  background:linear-gradient(135deg,var(--dg),var(--mg));
+  border-radius:16px;padding:20px;text-align:center;
+  margin:20px 0;color:#fff;
+  position:relative;overflow:hidden;
+}
+.trial-blob::before{
+  content:'';position:absolute;
+  width:160px;height:160px;
+  background:rgba(255,255,255,0.07);
+  border-radius:50%;top:-50px;right:-30px;
+}
+.trial-num{font-size:60px;font-weight:800;line-height:1}
+.trial-lbl{font-size:13px;opacity:.85;margin-top:3px}
+.trial-active{
+  background:rgba(37,211,102,.25);
+  border:1px solid rgba(37,211,102,.5);
+  color:var(--g);
+  font-size:11px;font-weight:700;
+  padding:5px 12px;border-radius:20px;
+  display:inline-flex;align-items:center;gap:5px;
+  margin-top:12px;
+}
+
+.feat-title{font-size:14px;font-weight:700;color:var(--tx);margin-bottom:11px}
+
+.feat-item{
+  display:flex;align-items:center;gap:12px;
+  padding:12px 14px;
+  background:#fff;border:1.5px solid var(--bdr);
+  border-radius:12px;margin-bottom:8px;
+  box-shadow:0 1px 6px rgba(0,0,0,0.04);
+}
+.feat-ico{
+  width:38px;height:38px;border-radius:10px;
+  background:var(--lg);
+  display:flex;align-items:center;justify-content:center;
+  font-size:19px;flex-shrink:0;
+}
+.feat-info{flex:1}
+.feat-name{font-size:13px;font-weight:600;color:var(--tx)}
+.feat-desc{font-size:11px;color:var(--sub);margin-top:1px}
+.feat-tick{
+  width:22px;height:22px;border-radius:50%;
+  background:var(--g);display:flex;align-items:center;
+  justify-content:center;font-size:11px;color:#fff;flex-shrink:0;
+}
+
+/* ── LOADING OVERLAY ── */
+.overlay{
+  display:none;
+  position:fixed;inset:0;
+  background:rgba(255,255,255,.93);
+  z-index:200;
+  flex-direction:column;
+  align-items:center;justify-content:center;
+  backdrop-filter:blur(4px);
+}
+.overlay.on{display:flex}
+.spinner{
+  width:46px;height:46px;
+  border:4px solid var(--bdr);
+  border-top-color:var(--g);
+  border-radius:50%;
+  animation:spin .7s linear infinite;
+  margin-bottom:14px;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ov-txt{font-size:14px;color:var(--sub);font-weight:500}
+.ov-sub{font-size:12px;color:#A0ADB3;margin-top:4px}
+
+/* ── MISC ── */
+.divider{height:1px;background:var(--bdr);margin:13px 0}
+.mb12{margin-bottom:12px}
+.mt16{margin-top:16px}
+.w100{width:100%}
+
+/* ── CV UPLOAD ZONE ── */
+.cv-upload-wrap{margin-bottom:14px}
+.cv-upload-zone{
+  border:2px dashed #B0C8C2;
+  border-radius:12px;
+  background:#F5FEFA;
+  padding:16px 14px;
+  display:flex;
+  align-items:center;
+  gap:13px;
+  cursor:pointer;
+  transition:border-color .2s,background .2s;
+  position:relative;
+  overflow:hidden;
+  touch-action:manipulation;
+  min-height:80px;
+  box-sizing:border-box;
+}
+.cv-upload-zone:hover,.cv-upload-zone.dragover{
+  border-color:var(--g);
+  background:#EDFBF4;
+}
+.cv-upload-zone.has-file{
+  border-color:var(--g);
+  border-style:solid;
+  background:#F0FFF6;
+}
+.cv-upload-icon{
+  width:44px;height:44px;border-radius:10px;
+  background:var(--lg);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;flex-shrink:0;
+  transition:transform .2s;
+}
+.cv-upload-zone.has-file .cv-upload-icon{background:#C6F4D6}
+.cv-upload-zone:hover .cv-upload-icon{transform:scale(1.07)}
+.cv-upload-text{}
+.cv-upload-title{
+  font-size:13px;font-weight:700;color:var(--tx);line-height:1.2;
+}
+.cv-upload-sub{
+  font-size:11px;color:var(--sub);margin-top:2px;
+}
+.cv-upload-sub.ok{color:var(--mg);font-weight:600}
+.cv-optional-badge{
+  position:absolute;top:9px;right:10px;
+  font-size:9px;font-weight:700;
+  background:#E9EDEF;color:var(--sub);
+  padding:2px 7px;border-radius:20px;letter-spacing:.3px;
+}
+.cv-upload-zone.has-file .cv-optional-badge{
+  background:var(--lg);color:var(--dg);content:'✓ Uploaded';
+}
+#cvFileInput{
+  position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;
+}
+
+/* ── TOAST ── */
+.toast{
+  position:fixed;
+  bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:#1A1A2E;color:#fff;
+  font-size:13px;font-weight:600;font-family:'Poppins',sans-serif;
+  padding:11px 20px;border-radius:30px;
+  display:flex;align-items:center;gap:8px;
+  opacity:0;pointer-events:none;
+  transition:opacity .3s,transform .3s;
+  white-space:nowrap;
+  z-index:500;
+  box-shadow:0 6px 24px rgba(0,0,0,0.3);
+  max-width:calc(100vw - 32px);
+  text-overflow:ellipsis;
+  overflow:hidden;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast-icon{font-size:16px}
+</style>
+</head>
+
+<body>
+<div class="phone-wrap">
+
+  <!-- ─── HEADER ─── -->
+  <div class="app-header">
+    <div class="logo-block">
+      <div class="logo-text">Peh<span>chaan</span></div>
+      <div class="logo-sub">app.pehchaan.me</div>
+    </div>
+    <div class="header-badge">⚡ Free Audit</div>
+  </div>
+
+  <!-- Progress -->
+  <div class="progress-bar">
+    <div class="progress-fill" id="pFill" style="width:20%"></div>
+  </div>
+
+  <!-- Step dots -->
+  <div class="step-dots">
+    <div class="dot active" id="d0"></div>
+    <div class="dot" id="d1"></div>
+    <div class="dot" id="d2"></div>
+    <div class="dot" id="d3"></div>
+    <div class="dot" id="d4"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       SCREEN 0 — LANDING
+  ═══════════════════════════════════════ -->
+  <div class="screen active" id="s0">
+    <div class="hero-pill">🎯 30-Second CV Audit</div>
+    <h1 class="hero-h1">Check how <span>job-ready</span> your CV is in 30 seconds</h1>
+    <p class="hero-sub">Built for BCom, BTech & BA graduates from Tier 2 & Tier 3 colleges. Get a real score — not fake feedback.</p>
+
+    <div class="social-proof">
+      <div class="sp-avatars">
+        <div class="sp-av">👨</div>
+        <div class="sp-av">👩</div>
+        <div class="sp-av">🧑</div>
+      </div>
+      <div class="sp-text"><strong>10,000+ students</strong> got their CV audited this month</div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Your Full Name</label>
+      <input type="text" class="form-input" id="iName" placeholder="e.g. Ravi Kumar Singh" autocomplete="name"/>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label">Your Degree</label>
+      <div class="select-wrap">
+        <select class="form-select" id="iDeg">
+          <option value="">Select your degree</option>
+          <option value="BCom">BCom</option>
+          <option value="BA">BA</option>
+          <option value="BTech">BTech</option>
+          <option value="BCA">BCA</option>
+          <option value="BSc">BSc</option>
+          <option value="MBA">MBA</option>
+          <option value="BBA">BBA</option>
+          <option value="Diploma">Diploma</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group mb12">
+      <label class="form-label">Target Job Role</label>
+      <div class="select-wrap">
+        <select class="form-select" id="iRole">
+          <option value="">What job are you targeting?</option>
+          <option value="Accountant">Accountant</option>
+          <option value="SDE">Software Developer (SDE)</option>
+          <option value="Sales Executive">Sales Executive</option>
+          <option value="Data Analyst">Data Analyst</option>
+          <option value="HR Executive">HR Executive</option>
+          <option value="Marketing Executive">Marketing Executive</option>
+          <option value="Bank PO">Bank PO</option>
+          <option value="Content Writer">Content Writer</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- CV Upload Zone -->
+    <div class="cv-upload-wrap">
+      <label class="form-label">Upload Your CV <span style="color:var(--sub);font-weight:400">(optional — for deeper analysis)</span></label>
+      <div class="cv-upload-zone" id="cvZone">
+        <input type="file" id="cvFileInput" accept=".pdf,.doc,.docx" onchange="handleCVUpload(this)">
+        <div class="cv-upload-icon" id="cvIcon">📄</div>
+        <div class="cv-upload-text">
+          <div class="cv-upload-title" id="cvTitle">Upload CV / Resume</div>
+          <div class="cv-upload-sub" id="cvSub">PDF or Word • Max 5MB • Tap to browse</div>
+        </div>
+        <div class="cv-optional-badge" id="cvBadge">OPTIONAL</div>
+      </div>
+    </div>
+
+    <button class="btn btn-green pulse" onclick="doAudit()">Get Free CV Audit →</button>
+
+    <div class="trust-strip">
+      <div class="trust-chip">✅ 100% Free</div>
+      <div class="trust-chip">🔒 No Card Needed</div>
+      <div class="trust-chip">⚡ Instant Result</div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       SCREEN 1 — AUDIT RESULT
+  ═══════════════════════════════════════ -->
+  <div class="screen" id="s1">
+    <div class="audit-top">
+      <span>📋</span>
+      <span>CV Audit for <span class="audit-name" id="rName">—</span></span>
+    </div>
+
+    <div class="score-blob">
+      <div class="score-lbl">Job Readiness Score</div>
+      <div class="score-ring">
+        <span class="score-num" id="sNum">0</span><span class="score-pct">%</span>
+      </div>
+      <div class="score-bar-wrap">
+        <div class="score-bar" id="sBar" style="width:0%"></div>
+      </div>
+      <div class="score-verdict" id="sVerdict">Analysing...</div>
+    </div>
+
+    <div class="bullets-title">🎯 3 Things to Fix Right Now</div>
+    <div id="bList"></div>
+
+    <button class="btn btn-green pulse mt16" onclick="doCard()">Generate Family Sabha Card ✨</button>
+    <p style="text-align:center;font-size:12px;color:var(--sub);margin-top:11px">Share this card with your family → unlock free Pro trial</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       SCREEN 2 — FAMILY SABHA CARD
+  ═══════════════════════════════════════ -->
+  <div class="screen" id="s2">
+    <div class="share-hint">📤 Send this card to your parents on WhatsApp</div>
+
+    <div class="sabha-card">
+      <!-- Card Header -->
+      <div class="sc-header">
+        <div class="sc-top-row">
+          <div class="sc-brand-col">
+            <div class="sc-brand">PEHCHAAN</div>
+            <div class="sc-brand-url">app.pehchaan.me</div>
+          </div>
+          <div class="sc-verified">✓ VERIFIED</div>
+        </div>
+        <div class="sc-student" id="cName">Student Name</div>
+        <div class="sc-degree" id="cRole">Targeting: Role • Degree</div>
+      </div>
+
+      <!-- Card Body -->
+      <div class="sc-body">
+
+        <!-- Before / After -->
+        <div class="sc-section">
+          <div class="sc-sec-title">📊 CV Score — Before vs After Training</div>
+          <div class="ba-grid">
+            <div class="ba-col before">
+              <div class="ba-lbl">📉 Before</div>
+              <div class="ba-score" id="cBefore">62%</div>
+              <div class="ba-sub">Current score</div>
+            </div>
+            <div class="ba-arrow">→</div>
+            <div class="ba-col after">
+              <div class="ba-lbl">📈 After</div>
+              <div class="ba-score">87%</div>
+              <div class="ba-sub">With Pehchaan Pro</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Salary Jump -->
+        <div class="sc-section">
+          <div class="sc-sec-title">💰 Expected Salary Jump</div>
+          <div class="salary-pill">
+            <div class="sal-row">
+              <div class="sal-old">₹10K/mo</div>
+              <div class="sal-arr">⟶</div>
+              <div class="sal-new">₹25K/mo</div>
+            </div>
+            <div class="sal-sub">Avg. for <strong id="cSalRole">your role</strong> after CV improvement</div>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Job Matches -->
+        <div class="sc-section">
+          <div class="sc-sec-title">🏢 Top Matching Companies</div>
+          <div id="cJobs"></div>
+        </div>
+
+        <div class="divider"></div>
+      </div>
+
+      <!-- Parent Approval -->
+      <div class="sc-parent">
+        <div class="sc-parent-title">🛡️ Parent Approval Required</div>
+        <div class="sc-parent-inner">
+          <div class="qr-box" onclick="doParent()">
+            <div class="qr-grid" id="qrGrid"></div>
+          </div>
+          <div class="sc-parent-text">
+            <div class="sc-parent-copy">Parents: Scan to approve your child's <strong>7-day free Pro trial</strong> — no payment needed</div>
+            <button class="btn-scan" onclick="doParent()">📲 Scan to Approve</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share Button -->
+    <button class="btn-wa" id="waBtn" onclick="doShare()">
+      <span style="font-size:18px">💬</span> Copy & Share on WhatsApp
+    </button>
+    <div class="card-footer-note">Tap → message copied to clipboard → paste in WhatsApp</div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       SCREEN 3 — PARENT VIEW
+  ═══════════════════════════════════════ -->
+  <div class="screen" id="s3">
+    <div class="parent-hero">
+      <span class="parent-emoji-big">👨‍👩‍👦</span>
+      <div class="parent-greeting">🙏 Namaste</div>
+      <div class="parent-h1">Aapke bacche ka CV <span>improve hua hai!</span></div>
+      <div class="parent-sub-txt" id="pSubTxt">
+        Yeh course lene se <strong id="pChildName">aapka beta</strong> ko better naukri mil sakti hai
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="stat-num" id="pScoreNow">62%</div>
+        <div class="stat-lbl">Current CV</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">87%</div>
+        <div class="stat-lbl">After Training</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">₹25K</div>
+        <div class="stat-lbl">Avg Salary</div>
+      </div>
+    </div>
+
+    <!-- Trust card -->
+    <div class="trust-card">
+      <div class="trust-card-title">✅ Parents Trust Pehchaan</div>
+      <div class="trust-row-item">
+        <div class="trust-ck">✓</div>
+        <span>10,000+ students from Tier 2 & Tier 3 colleges across India</span>
+      </div>
+      <div class="trust-row-item">
+        <div class="trust-ck">✓</div>
+        <span><strong>No auto-debit.</strong> No hidden charges. No subscription trap.</span>
+      </div>
+      <div class="trust-row-item">
+        <div class="trust-ck">✓</div>
+        <span>7-din free trial — sirf aapki permission se shuru hoga</span>
+      </div>
+      <div class="trust-row-item">
+        <div class="trust-ck">✓</div>
+        <span>Real company job matches — HDFC, Infosys, Bajaj Finance</span>
+      </div>
+    </div>
+
+    <button class="btn btn-green pulse" onclick="doConvert()">
+      ✅ Approve & Start Free Trial
+    </button>
+
+    <div style="text-align:center;margin-top:11px;font-size:12px;color:var(--sub)">
+      7-din free trial &nbsp;•&nbsp; Koi debit nahi &nbsp;•&nbsp; Sirf ek click
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       SCREEN 4 — CONVERSION / SUCCESS
+  ═══════════════════════════════════════ -->
+  <div class="screen" id="s4">
+    <div class="success-center">
+      <span class="success-anim">🎉</span>
+      <div class="success-h1">Trial Unlocked!</div>
+      <div class="success-sub" id="sucSub">7-day Pro access is now active</div>
+    </div>
+
+    <div class="trial-blob">
+      <div class="trial-num">7</div>
+      <div class="trial-lbl">Days Free Pro Trial</div>
+      <div class="trial-active">● ACTIVE</div>
+    </div>
+
+    <div class="feat-title">🔓 Your Pro Features — Unlocked</div>
+
+    <div class="feat-item">
+      <div class="feat-ico">🎙️</div>
+      <div class="feat-info">
+        <div class="feat-name">Mock Interviews</div>
+        <div class="feat-desc">AI interviewer for your exact target role</div>
+      </div>
+      <div class="feat-tick">✓</div>
+    </div>
+
+    <div class="feat-item">
+      <div class="feat-ico">🤖</div>
+      <div class="feat-info">
+        <div class="feat-name">AI Tutor</div>
+        <div class="feat-desc">Personalised learning based on your CV gaps</div>
+      </div>
+      <div class="feat-tick">✓</div>
+    </div>
+
+    <div class="feat-item">
+      <div class="feat-ico">📋</div>
+      <div class="feat-info">
+        <div class="feat-name">JD-Based Questions</div>
+        <div class="feat-desc">Prep using real JDs from HDFC, Infosys & more</div>
+      </div>
+      <div class="feat-tick">✓</div>
+    </div>
+
+    <div class="feat-item">
+      <div class="feat-ico">📈</div>
+      <div class="feat-info">
+        <div class="feat-name">CV Optimizer</div>
+        <div class="feat-desc">ATS-friendly builder with keyword suggestions</div>
+      </div>
+      <div class="feat-tick">✓</div>
+    </div>
+
+    <button class="btn btn-green mt16" onclick="alert('🚀 Opening Pehchaan Pro dashboard...\n\nWelcome aboard! Your learning journey starts now.')">
+      Start Learning Now →
+    </button>
+
+    <div style="text-align:center;margin-top:14px;font-size:11px;color:var(--sub)">
+      Restart demo?
+      <span onclick="doReset()" style="color:var(--g);font-weight:700;cursor:pointer"> Start over →</span>
+    </div>
+  </div>
+
+  <!-- ─── LOADING OVERLAY ─── -->
+  <div class="overlay" id="ov">
+    <div class="spinner"></div>
+    <div class="ov-txt" id="ovTxt">Analysing your CV...</div>
+    <div class="ov-sub" id="ovSub">This takes just a moment</div>
+  </div>
+
+  <!-- ─── TOAST ─── -->
+  <div class="toast" id="toast">
+    <span class="toast-icon" id="toastIcon">✅</span>
+    <span id="toastMsg">Copied to clipboard!</span>
+  </div>
+
+</div><!-- /phone-wrap -->
+
+<script>
+/* ─── STATE ─── */
+const S = { name:'', degree:'', role:'', score:0, cvUploaded:false };
+
+/* ─── ROLE DATA ─── */
+const RD = {
+  Accountant:{
+    bullets:[
+      'Add an Excel-based project — e.g. MIS report, expense tracker with VLOOKUP & Pivot tables',
+      'Quantify internship impact — "Processed 200+ invoices per month with 99% accuracy"',
+      'Include ATS keywords: Tally ERP 9, GST Filing, Bank Reconciliation, TDS, Balance Sheet'
+    ],
+    jobs:[
+      {name:'HDFC Bank',pos:'Junior Accountant',ico:'🏦',bg:'#EBF5FB',pct:'92%'},
+      {name:'Bajaj Finance',pos:'Finance Executive',ico:'💼',bg:'#FEF9E7',pct:'88%'},
+      {name:'S.K. & Associates (CA)',pos:'Accounts Assistant',ico:'📊',bg:'#F0E6FA',pct:'95%'}
+    ],
+    salRole:'Finance / Accounts'
+  },
+  SDE:{
+    bullets:[
+      'Add 2+ GitHub projects with live demo links — recruiters check portfolios first',
+      'Include DSA practice: "Solved 150+ LeetCode problems, 3★ on CodeChef"',
+      'Add keywords: REST API, React.js, Node.js, MySQL, Docker, Git — match the JD exactly'
+    ],
+    jobs:[
+      {name:'Infosys',pos:'Systems Engineer',ico:'💻',bg:'#E9F7EF',pct:'89%'},
+      {name:'TCS',pos:'Junior Developer',ico:'🖥️',bg:'#EBF5FB',pct:'85%'},
+      {name:'Wipro',pos:'Software Engineer',ico:'⚙️',bg:'#FEF9E7',pct:'82%'}
+    ],
+    salRole:'Software Development'
+  },
+  'Sales Executive':{
+    bullets:[
+      'Add a target achievement metric — "Exceeded monthly sales target by 20% for 3 consecutive months"',
+      'Include CRM tools: Salesforce, Zoho CRM, LeadSquared, Freshsales',
+      'Add keywords: B2B Sales, Lead Generation, Client Retention, Revenue Growth, Upselling'
+    ],
+    jobs:[
+      {name:'HDFC Life',pos:'Sales Associate',ico:'📱',bg:'#EBF5FB',pct:'91%'},
+      {name:'Asian Paints',pos:'Field Sales Executive',ico:'🎨',bg:'#FEF9E7',pct:'87%'},
+      {name:'Axis Bank',pos:'Relationship Manager',ico:'🏦',bg:'#E9F7EF',pct:'84%'}
+    ],
+    salRole:'Sales & Business Dev'
+  },
+  'Data Analyst':{
+    bullets:[
+      'Add a data project with a real dataset — Kaggle link + GitHub repo = instant credibility',
+      'Quantify: "Analysed 50,000+ rows of sales data using Python & Excel to identify 3 key trends"',
+      'Add keywords: Power BI, SQL, Pandas, NumPy, Tableau, A/B Testing, Data Cleaning'
+    ],
+    jobs:[
+      {name:'Mu Sigma',pos:'Analyst Trainee',ico:'📈',bg:'#EBF5FB',pct:'92%'},
+      {name:'Cognizant',pos:'Data Analyst',ico:'📊',bg:'#E9F7EF',pct:'89%'},
+      {name:'Deloitte',pos:'Business Analyst',ico:'🔍',bg:'#FEF9E7',pct:'85%'}
+    ],
+    salRole:'Data & Analytics'
+  },
+  'HR Executive':{
+    bullets:[
+      'Add internship project: "Assisted in hiring 15 candidates — sourcing to onboarding in 3 weeks"',
+      'Include HRMS tools: Keka, Darwinbox, GreytHR, Zoho People',
+      'Add keywords: Talent Acquisition, Employee Onboarding, Exit Interviews, Payroll, ESS Portal'
+    ],
+    jobs:[
+      {name:'Wipro',pos:'HR Executive',ico:'🏢',bg:'#E9F7EF',pct:'88%'},
+      {name:'KPMG',pos:'HR Associate',ico:'👔',bg:'#EBF5FB',pct:'84%'},
+      {name:'Randstad India',pos:'Talent Acquisition Exec',ico:'🎯',bg:'#FEF9E7',pct:'91%'}
+    ],
+    salRole:'HR & People Ops'
+  },
+  'Marketing Executive':{
+    bullets:[
+      'Add a campaign result: "Managed Instagram page — grew followers from 500 to 5,000 in 90 days"',
+      'Include digital tools: Canva, Meta Ads Manager, Google Analytics, Mailchimp, HubSpot',
+      'Add keywords: Content Strategy, SEO, SEM, Email Marketing, Brand Awareness, Lead Generation'
+    ],
+    jobs:[
+      {name:'Nykaa',pos:'Digital Marketing Exec',ico:'💄',bg:'#FEF9E7',pct:'90%'},
+      {name:'Zomato',pos:'Marketing Associate',ico:'🍕',bg:'#F9EBE0',pct:'86%'},
+      {name:'Reliance Retail',pos:'Brand Exec',ico:'🛍️',bg:'#E9F7EF',pct:'83%'}
+    ],
+    salRole:'Marketing & Brand'
+  },
+  'Bank PO':{
+    bullets:[
+      'Highlight any banking internship or finance course — even NPTEL certifications count',
+      'Add: "Appeared for IBPS PO / SBI PO Prelims" — shows seriousness to recruiters',
+      'Include keywords: Core Banking, NPA Management, KYC, Cash Handling, Loan Processing, CIBIL'
+    ],
+    jobs:[
+      {name:'SBI',pos:'Probationary Officer',ico:'🏛️',bg:'#EBF5FB',pct:'94%'},
+      {name:'Bank of Baroda',pos:'PO Trainee',ico:'🏦',bg:'#E9F7EF',pct:'89%'},
+      {name:'HDFC Bank',pos:'Relationship Manager',ico:'💳',bg:'#FEF9E7',pct:'86%'}
+    ],
+    salRole:'Banking & Finance'
+  },
+  'Content Writer':{
+    bullets:[
+      'Link a portfolio: Medium blog, LinkedIn articles, or even a Notion page with writing samples',
+      'Add client work: "Wrote 30+ SEO blogs for D2C brand — avg. 2,000 words, top-3 Google rank"',
+      'Add keywords: SEO Writing, Copywriting, Content Strategy, WordPress, Grammarly, CMS, SERP'
+    ],
+    jobs:[
+      {name:'Internshala',pos:'Content Associate',ico:'✍️',bg:'#EBF5FB',pct:'91%'},
+      {name:'upGrad',pos:'Content Writer',ico:'📝',bg:'#E9F7EF',pct:'87%'},
+      {name:'YourStory',pos:'Editorial Associate',ico:'📰',bg:'#FEF9E7',pct:'85%'}
+    ],
+    salRole:'Content & Copywriting'
+  }
+};
+
+function getRD(role){ return RD[role] || {
+  bullets:[
+    'Add measurable impact to every experience bullet point in your CV',
+    'Include role-specific keywords from 5 top job descriptions on Naukri',
+    'Add a Skills section with both technical tools and soft skills'
+  ],
+  jobs:[
+    {name:'Infosys BPM',pos:'Process Associate',ico:'🏢',bg:'#E9F7EF',pct:'87%'},
+    {name:'Reliance Industries',pos:'Management Trainee',ico:'⚡',bg:'#FEF9E7',pct:'83%'},
+    {name:'HDFC Bank',pos:'Relationship Executive',ico:'🏦',bg:'#EBF5FB',pct:'89%'}
+  ],
+  salRole:'your target role'
+}}
+
+/* ─── PROGRESS ─── */
+function setStep(n){
+  document.getElementById('pFill').style.width = ((n+1)/5*100)+'%';
+  for(let i=0;i<5;i++){
+    document.getElementById('d'+i).className = 'dot'+(i===n?' active':'');
+  }
+}
+
+function show(n){
+  document.querySelectorAll('.screen').forEach((s,i)=>{
+    s.classList.toggle('active',i===n);
+  });
+  setStep(n);
+  window.scrollTo(0,0);
+}
+
+function load(txt,sub,ms,cb){
+  const ov=document.getElementById('ov');
+  document.getElementById('ovTxt').textContent=txt;
+  document.getElementById('ovSub').textContent=sub;
+  ov.classList.add('on');
+  setTimeout(()=>{ ov.classList.remove('on'); cb(); }, ms);
+}
+
+/* ─── SCREEN 0 → 1 ─── */
+function doAudit(){
+  const n=document.getElementById('iName').value.trim();
+  const d=document.getElementById('iDeg').value;
+  const r=document.getElementById('iRole').value;
+  if(!n){ flashInput('iName','Please enter your name'); return; }
+  if(!d){ flashInput('iDeg','Please select your degree'); return; }
+  if(!r){ flashInput('iRole','Please select your target role'); return; }
+  S.name=n; S.degree=d; S.role=r;
+  S.score=Math.floor(Math.random()*21)+55;
+  const loadMsg = S.cvUploaded
+    ? 'Reading your CV...'
+    : 'Scanning your CV profile...';
+  const loadSub = S.cvUploaded
+    ? 'Extracting skills, keywords & experience gaps'
+    : 'Matching against 10,000+ CVs in our database';
+  load(loadMsg, loadSub, 2200, buildAudit);
+}
+
+function flashInput(id,msg){
+  const el=document.getElementById(id);
+  el.style.borderColor='#E53E3E';
+  el.style.background='#FFF5F5';
+  alert(msg);
+  setTimeout(()=>{ el.style.borderColor=''; el.style.background=''; },1500);
+}
+
+function buildAudit(){
+  document.getElementById('rName').textContent = S.name + ' (' + S.degree + ')';
+
+  /* Animated counter */
+  let cur=0; const tgt=S.score;
+  const n=document.getElementById('sNum');
+  const bar=document.getElementById('sBar');
+  const t=setInterval(()=>{
+    cur+=2;
+    if(cur>=tgt){ cur=tgt; clearInterval(t); }
+    n.textContent=cur;
+  },28);
+  setTimeout(()=>{ bar.style.width=tgt+'%'; },100);
+
+  const v = tgt<62
+    ? 'Needs significant improvement — most recruiters will skip this CV'
+    : tgt<68
+    ? 'Below average — you are missing key opportunities right now'
+    : 'Average score — a few fixes can dramatically improve your chances';
+  document.getElementById('sVerdict').textContent=v;
+
+  const rd=getRD(S.role);
+  const bl=document.getElementById('bList');
+  bl.innerHTML='';
+  rd.bullets.forEach(b=>{
+    bl.innerHTML+=`<div class="bullet-card"><span class="b-icon">⚠️</span><span>${b}</span></div>`;
+  });
+
+  show(1);
+}
+
+/* ─── SCREEN 1 → 2 ─── */
+function doCard(){
+  load('Generating your Family Sabha Card...','Adding job matches & salary data',1600,buildCard);
+}
+
+function buildCard(){
+  document.getElementById('cName').textContent=S.name;
+  document.getElementById('cRole').textContent='Targeting: '+S.role+' • '+S.degree;
+  document.getElementById('cBefore').textContent=S.score+'%';
+  const rd=getRD(S.role);
+  document.getElementById('cSalRole').textContent=rd.salRole;
+
+  /* Jobs */
+  const jl=document.getElementById('cJobs');
+  jl.innerHTML='';
+  rd.jobs.forEach(j=>{
+    jl.innerHTML+=`
+      <div class="job-row">
+        <div class="job-ico" style="background:${j.bg}">${j.ico}</div>
+        <div class="job-info">
+          <div class="job-company">${j.name}</div>
+          <div class="job-pos">${j.pos}</div>
+        </div>
+        <div class="job-pct">${j.pct} match</div>
+      </div>`;
+  });
+
+  buildQR();
+  show(2);
+}
+
+function buildQR(){
+  /* 7×7 fake QR pattern */
+  const pat=[
+    1,1,1,0,1,1,1,
+    1,0,1,0,1,0,1,
+    1,1,1,1,0,1,1,
+    0,1,0,1,0,0,0,
+    1,0,1,0,1,1,1,
+    0,1,0,1,0,0,1,
+    1,1,0,1,1,1,1
+  ];
+  const g=document.getElementById('qrGrid');
+  g.innerHTML='';
+  pat.forEach(p=>{
+    const d=document.createElement('div');
+    d.className=p?'qp':'qp e';
+    g.appendChild(d);
+  });
+}
+
+/* ─── CV UPLOAD ─── */
+function handleCVUpload(input){
+  const file=input.files[0];
+  if(!file) return;
+  const maxMB=5;
+  if(file.size>maxMB*1024*1024){
+    showToast('⚠️','File too large — max 5MB');
+    input.value=''; return;
+  }
+  const allowed=['application/pdf','application/msword',
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+  if(!allowed.includes(file.type) && !file.name.match(/\.(pdf|doc|docx)$/i)){
+    showToast('⚠️','Please upload a PDF or Word file');
+    input.value=''; return;
+  }
+  const zone=document.getElementById('cvZone');
+  const icon=document.getElementById('cvIcon');
+  const title=document.getElementById('cvTitle');
+  const sub=document.getElementById('cvSub');
+  const badge=document.getElementById('cvBadge');
+  zone.classList.add('has-file');
+  icon.textContent='✅';
+  const name=file.name.length>28?file.name.substring(0,25)+'...':file.name;
+  title.textContent=name;
+  const kb=(file.size/1024).toFixed(0);
+  sub.textContent=`${kb} KB • Ready for analysis`;
+  sub.classList.add('ok');
+  badge.textContent='✓ Uploaded';
+  S.cvUploaded=true;
+  showToast('📄','CV uploaded — deeper analysis unlocked!');
+}
+
+/* Drag & drop on CV zone */
+document.addEventListener('DOMContentLoaded',()=>{
+  const zone=document.getElementById('cvZone');
+  if(!zone) return;
+  zone.addEventListener('dragover',e=>{e.preventDefault();zone.classList.add('dragover')});
+  zone.addEventListener('dragleave',()=>zone.classList.remove('dragover'));
+  zone.addEventListener('drop',e=>{
+    e.preventDefault();zone.classList.remove('dragover');
+    const dt=e.dataTransfer;
+    if(dt&&dt.files.length){
+      document.getElementById('cvFileInput').files=dt.files;
+      handleCVUpload(document.getElementById('cvFileInput'));
+    }
+  });
+});
+
+/* ─── TOAST HELPER ─── */
+let toastTimer=null;
+function showToast(icon,msg,duration=3200){
+  const t=document.getElementById('toast');
+  document.getElementById('toastIcon').textContent=icon;
+  document.getElementById('toastMsg').textContent=msg;
+  t.classList.add('show');
+  if(toastTimer) clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>t.classList.remove('show'),duration);
+}
+
+/* ─── SHARE — copy to clipboard + open WA ─── */
+function doShare(){
+  const btn=document.getElementById('waBtn');
+  btn.classList.remove('wa-pop');
+  void btn.offsetWidth;
+  btn.classList.add('wa-pop');
+
+  const rd=getRD(S.role);
+  const msg=
+    `🎓 *${S.name}'s CV Audit — Pehchaan*\n\n`+
+    `📊 Job Readiness Score: *${S.score}%*\n`+
+    `🎯 Target Role: *${S.role}* (${S.degree})\n\n`+
+    `✨ With Pehchaan Pro:\n`+
+    `• CV Score jumps to *87%*\n`+
+    `• Expected salary: *₹25,000/month*\n`+
+    `• Matched with ${rd.jobs[0].name}, ${rd.jobs[1].name} & more!\n\n`+
+    `👨‍👩‍👦 *Mummy-Papa: Click below to approve 7-day free trial*\n`+
+    `👉 https://app.pehchaan.me\n\n`+
+    `No auto-debit • No hidden charges • 100% free trial`;
+
+  /* Copy to clipboard first, then open WA */
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(msg).then(()=>{
+      showToast('✅','Message copied! Just paste & send in WhatsApp',4000);
+      // setTimeout(()=>window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank'),500);
+    }).catch(()=>fallbackCopy(msg));
+  } else {
+    fallbackCopy(msg);
+  }
+}
+
+function fallbackCopy(msg){
+  /* execCommand fallback for older browsers / HTTP */
+  const ta=document.createElement('textarea');
+  ta.value=msg;
+  ta.style.cssText='position:fixed;top:-9999px;left:-9999px;opacity:0';
+  document.body.appendChild(ta);
+  ta.focus(); ta.select();
+  let ok=false;
+  try{ ok=document.execCommand('copy'); }catch(e){}
+  document.body.removeChild(ta);
+  if(ok){
+    showToast('✅','Message copied! Just paste & send in WhatsApp',4000);
+  } else {
+    showToast('💬','Opening WhatsApp with pre-filled message',3000);
+  }
+  // setTimeout(()=>window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank'),500);
+}
+
+/* ─── SCREEN 2 → 3 (Parent) ─── */
+function doParent(){
+  document.getElementById('pChildName').textContent=S.name;
+  document.getElementById('pSubTxt').innerHTML=
+    `Yeh course lene se <strong>${S.name}</strong> ko better naukri mil sakti hai — <strong>${S.role}</strong> mein`;
+  document.getElementById('pScoreNow').textContent=S.score+'%';
+  load('Opening Parent View...','Aapke liye special page load ho raha hai',1300,()=>show(3));
+}
+
+/* ─── SCREEN 3 → 4 (Convert) ─── */
+function doConvert(){
+  load('Activating your free trial...','Setting up your personalised dashboard',2000,()=>{
+    document.getElementById('sucSub').textContent=
+      '7-day Pro access activated for '+S.name+' 🎉';
+    show(4);
+  });
+}
+
+/* ─── RESET ─── */
+function doReset(){
+  S.name=''; S.degree=''; S.role=''; S.score=0; S.cvUploaded=false;
+  document.getElementById('iName').value='';
+  document.getElementById('iDeg').value='';
+  document.getElementById('iRole').value='';
+  /* Reset CV upload zone */
+  const zone=document.getElementById('cvZone');
+  zone.classList.remove('has-file');
+  document.getElementById('cvIcon').textContent='📄';
+  document.getElementById('cvTitle').textContent='Upload CV / Resume';
+  const sub=document.getElementById('cvSub');
+  sub.textContent='PDF or Word • Max 5MB • Tap to browse';
+  sub.classList.remove('ok');
+  document.getElementById('cvBadge').textContent='OPTIONAL';
+  document.getElementById('cvFileInput').value='';
+  show(0);
+}
+</script>
+</body>
+</html>
